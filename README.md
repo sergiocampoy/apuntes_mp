@@ -11,20 +11,20 @@
 * Punteros
     * Un poco de teoría
 
-### [Viernes 14 de marzo](./14-03-19.md)
+### [Jueves 14 de marzo](./14-03-19.md)
 * Punteros
     * Relación entre punteros y arrays
     * Aritmética de punteros
     * Punteros y funciones
 
-### [Jueves 15 de marzo](./15-03-19.md)
+### [Viernes 15 de marzo](./15-03-19.md)
 * Punteros
     * Punteros a constantes vs. punteros constantes
     * Punteros a punteros
     * Gestión dinámica de memoria
     * Devolución de punteros en funciones
 
-### [Viernes 28 de marzo](./28-03-19.md)
+### [Jueves 28 de marzo](./28-03-19.md)
 * Punteros
     * Punteros a objetos y estructuras
     * Uso de `this` en constructores
@@ -32,8 +32,16 @@
     * Ejercicio 1.1
 
 
-### [Jueves 29 de marzo](./29-03-19.md)
+### [Viernes 29 de marzo](./29-03-19.md)
 * Punteros
     * Ejercicio 1.d)
     * Ejercicio 14
         * Ficheros y forma ampliada del main
+
+### [Jueves 11 de abril](./11-04-19.cpp)
+* Punteros y memoria dinámica
+  * Gestión de matrices dinámicas
+    * Ejercicio 17 (terminado)
+
+### [Viernes 12 de abril]()
+* Punteros y memoria dinámica
