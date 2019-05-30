@@ -30,6 +30,7 @@ public:
   bool chequearPosicionado(char, int, int, char);
   void posicionarBarco(int);
   bool escribir(const char*);
+  void leer(const char*);
 
   // Sobrecarga de operadores
   const Barquito& operator=(const Barquito&);

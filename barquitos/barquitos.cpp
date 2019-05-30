@@ -129,6 +129,73 @@ bool Barquito::escribir(const char* nombreArchivo) {
   }
 }
 
+void Barquito::leer(const char* nombreArchivo) {
+  // crear archivo
+  ifstream archivo(nombreArchivo, ios::binary);
+  // se comprueba apertura
+  if (!archivo.is_open()) {
+    cerr << "Error de apertura archivo" << endl;
+  } else {
+    // lectura cadena mágica
+    char cadena[100];
+    archivo.getline(cadena, 100);
+    // comprobar si es un archivo con el formato
+    if (IDENTIFICADOR.compare(cadena) != 0) {
+      cerr << "Archivo con formato incorrecto" << endl;
+    } else {
+      // formato OK
+      int nFilas, nColumnas;
+      archivo >> nFilas >> nColumnas; // Modo texto
+      // Queda un '\n' sin procesar, no podemos comenzar a leer en binario tal cual. Tenemos que descartarlo
+      // Se ignoran n caracteres
+      archivo.ignore(1); // Necesario siempre
+      // se libera espacio
+      liberarEspacio();
+      // asignar el numero de filas y de columnas
+      numeroFilas = nFilas;
+      numeroColumnas = nColumnas;
+      // reservar espacio
+      reservarEspacio();
+      // lectura del archivo binario
+      int valor;
+      for (int i = 0; i < numeroFilas; i++) {
+        for (int j = 0; j < numeroColumnas; j++) {
+          archivo.read((char*)(&valor), sizeof(int));
+          tablero[i][j] = valor;
+          // archivo.read((char*)(&tablero[i][j]), sizeof(int));
+        }
+      }
+    }
+  }
+  archivo.close();
+}
+
+//// Extra
+// Para hacer un peek del siguiente caracter sin consumirlo
+char caracter = archivo.peek(1);
+if (caracter == '#') {
+  ...
+} else {
+  ...
+}
+
+// ARCHIVOS
+// Métodos
+ignore(int) // para saltar '\n'
+peek(int) // para tratamiento de comentarios/lineas opcionales
+is_open() // comprobar si está abierto
+close() // cerrar el fichero
+getline(char, int))
+>>, <<
+eof // end of file (como el centinela de los arrays)
+
+// Para binario
+flag ios::binary // en la apertura del archivo
+read((char*)(&type), sizeof(type))
+write((char*)(&type), sizeof(type))
+
+
+
 ////////// main
 
 const string Barquito::IDENTIFICADOR = "MP-BARQ-V1.0";
